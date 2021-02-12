@@ -14,13 +14,13 @@ struct Main {
 
 extension Main {
   struct State: Equatable {
-    var children: [Child.State]
+    var children: IdentifiedArrayOf<Child.State>
   }
 }
 
 extension Main {
   enum Action {
-    case child(index: Int, action: Child.Action)
+    case child(id: Child.State.ID, action: Child.Action)
   }
 }
 
@@ -35,19 +35,17 @@ extension Main {
     let store: Store<State, Action>
 
     var body: some SwiftUI.View {
-      WithViewStore(store) { viewStore in
-        ScrollView {
-          LazyVGrid(columns: [.init(), .init()]) {
-            ForEachStore(
-              store.scope(
-                state: \.children,
-                action: Action.child(index:action:)
-              )
-            ) { childStore in
-              Child.View(
-                store: childStore
-              )
-            }
+      ScrollView {
+        LazyVGrid(columns: [.init(), .init()]) {
+          ForEachStore(
+            store.scope(
+              state: \.children,
+              action: Action.child(id:action:)
+            )
+          ) { childStore in
+            Child.View(
+              store: childStore
+            )
           }
         }
       }
@@ -62,7 +60,7 @@ extension Main {
   static let reducer: Reducer<State, Action, Environment> = .combine(
     Child.reducer.forEach(
       state: \.children,
-      action: /Action.child(index:action:),
+      action: /Action.child(id:action:),
       environment: { env in
         .init(
           loadItem: env.loadItem

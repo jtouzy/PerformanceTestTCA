@@ -19,9 +19,9 @@ struct PerformanceTestTCAApp: App {
       Main.View(
         store: .init(
           initialState: .init(
-            children: items.map {
+            children: .init(items.map {
               .init(item: $0)
-            }
+            }, id: \.id)
           ),
           reducer: Main.reducer,
           environment: .init(
