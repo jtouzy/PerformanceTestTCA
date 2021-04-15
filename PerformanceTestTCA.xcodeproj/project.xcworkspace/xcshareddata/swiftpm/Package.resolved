@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
         "state": {
           "branch": null,
-          "revision": "8eab6ad841ccc420f29f3e77e17e7b260841b50a",
-          "version": "0.2.0"
+          "revision": "f1250faa1c1436ca83950ce676a4fe97a309a457",
+          "version": "0.4.1"
         }
       },
       {
@@ -24,8 +24,17 @@
         "repositoryURL": "git@github.com:pointfreeco/swift-composable-architecture.git",
         "state": {
           "branch": null,
-          "revision": "0fb6c9bfc306e39dc750786edf28a4a77e67749c",
-          "version": "0.14.0"
+          "revision": "84b9a004384eb8dcd2fd817a5bc61d0152a47422",
+          "version": "0.17.0"
+        }
+      },
+      {
+        "package": "xctest-dynamic-overlay",
+        "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
+        "state": {
+          "branch": null,
+          "revision": "603974e3909ad4b48ba04aad7e0ceee4f077a518",
+          "version": "0.1.0"
         }
       }
     ]

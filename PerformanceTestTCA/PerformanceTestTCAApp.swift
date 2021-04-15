@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct PerformanceTestTCAApp: App {
-  let items: [Item] = (0...2000).map {
+  let items: [Item] = (0...100000).map {
     .init(id: "\($0)", name: "unloaded")
   }
 
